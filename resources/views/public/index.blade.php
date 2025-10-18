@@ -7,6 +7,7 @@ $p = asset("image/why/desktop-min.png");
 @include('public.components.hero')
 
 @include('public.components.Info')
+
 <section class="bg-[#113975] h-[1000px]">
 
     <div class="grid grid-cols-2 place-items-center text-white p-36">

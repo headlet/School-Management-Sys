@@ -9,7 +9,7 @@
 
         <button type="button" class="flex items-center gap-x-2 px-3 py-2 rounded-md bg-gray-200 hover:bg-gray-300 transition">
             <i class="bi bi-search"></i>
-            <span>Search</span>
+            <span>Import Student</span>
         </button>
     </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\student;
+use App\Models\Roles;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -50,17 +51,21 @@ class StudentController extends Controller
             $validation['photo'] = $path;
         }
 
-        student::create($validation);
+        $student = student::create($validation);
 
-        return redirect()->back()->with('success', 'Student added successfully!');
+        $defaultRole = Roles::where('name', 'student')->first();
+        if ($defaultRole) {
+            $student->roles()->attach($defaultRole->id);
+        }
+
+        return redirect()->back()->with('success', 'Student registered successfully!');
     }
-
     /**
      * Display the specified resource.
      */
     public function show(student $student)
     {
-        //
+        return view('admin.Student.viewstd', compact('student'));
     }
 
     /**
@@ -68,7 +73,7 @@ class StudentController extends Controller
      */
     public function edit(student $student)
     {
-        //
+        return view('admin.Student.editstd', compact('student'));
     }
 
     /**
@@ -76,21 +81,47 @@ class StudentController extends Controller
      */
     public function update(Request $request, student $student)
     {
-        //
+        $validation = $request->validate([
+            'full_name'    => 'required|string|max:255',
+            'registration' => 'required|string|max:50',
+            'phone_number' => 'required|string|size:10',
+            'photo'        => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'dob'          => 'required|date',
+            'doa'          => 'required|date',
+            'gender'       => 'required|in:male,female,other',
+            'class'        => 'required|string|max:20',
+            'address'      => 'required|string|max:255',
+        ]);
+
+        if ($request->hasFile('photo')) {
+            if ($student->photo && Storage::disk('public')->exists($student->photo)) {
+                Storage::disk('public')->delete($student->photo);
+            }
+
+            $path = $request->file('photo')->store('students', 'public');
+            $validation['photo'] = $path;
+        } else {
+            $validation['photo'] = $student->photo;
+        }
+
+        $student->update($validation);
+
+        return redirect()->route('student')->with('success', 'Student data updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(student $student)
+    public function destroy(Student $student)
     {
-
-        if ($student->photo && Storage::exists($student->photo)) {
-            Storage::delete($student->photo);
+        if ($student->photo && Storage::disk('public')->exists($student->photo)) {
+            Storage::disk('public')->delete($student->photo);
         }
 
-
         $student->delete();
-        return response()->json(["message" =>  $student->full_name . ' ' . 'Successful ']);
+
+        return response()->json([
+            "message" => $student->full_name . ' deleted successfully!'
+        ]);
     }
 }

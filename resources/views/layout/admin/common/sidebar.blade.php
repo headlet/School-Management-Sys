@@ -27,7 +27,7 @@
                     </a>
                 </li>
 
-                  <li>
+                <li>
                     <a href="{{route('addstudent')}}" class="flex items-center gap-3 p-3 font-normal
                 {{ request()->routeIs('addstudent') ? 'border border-white bg-blue-300 text-white sidebar transition-all duration-300 ease-in-out' : 'text-gray-200 hover:bg-gray-700 sidebar'}} ">
                         <span class="hide-on-collapse transition-all duration-500 ease-in-out origin-left">Add Students</span>
@@ -74,7 +74,7 @@
         $('.sidebar').toggleClass('w-56 w-14');
         $('.main').toggleClass('ml-56 ml-14');
         $('.hide-on-collapse').toggleClass('opacity-0 scale-0');
-        $('.list').addClass('hidden');
+        $('.list').addClass('hidden').toggleClass('students');
     });
 
     $('.studentbtn').click(function() {

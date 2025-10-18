@@ -19,4 +19,17 @@ class student extends Model
         'class',
         'address',
     ];
+
+    public function roles()
+    {
+        return $this->morphToMany(Roles::class, 'user', 'user_roles', 'user_id', 'role_id');
+    }
+    
+    //delete role when student is deleted
+    protected static function booted()
+    {
+        static::deleting(function ($student) {
+            $student->roles()->detach();
+        });
+    }
 }

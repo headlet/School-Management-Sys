@@ -11,10 +11,10 @@ $q = asset('image/hero1.png');
   <!-- Content (on top of waves) -->
   <div class="relative z-[1100] text-center text-white flex justify-between items-center gap-4 w-[80vw]">
     <div class='h-[60vh] mt-60'>
-      <h1 class="anim text-3xl font-bold mb-4" id='htext'>Hello, I am Student</h1>
+      <h1 class="anim text-3xl font-bold mb-4" id='htext'>Hello, This is School Management Sys</h1>
       
       <p class="anim text-lg opacity-80 max-w-md" id='ptext'>
-        Welcome to my profile. I’m learning with passion and enjoying the journey 🚀
+        Welcome to our page.
       </p>
     </div>
     <div class="w-[550px] h-[418px] mb-36 right-0 bg-[url('{{$q}}')] flex justify-center items-center animate-bg-float anim" id="ianim" >

@@ -19,8 +19,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'photo',
         'email',
+        'phone_number',
         'password',
+
     ];
 
     /**
@@ -44,5 +47,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+
+     public function roles(){
+          return $this->morphToMany(Roles::class, 'user', 'user_roles', 'user_id', 'role_id');
+    }
+
+    protected static function booted()
+    {
+        static::deleting(function ($user){
+            $user->roles()->detach();
+        });
     }
 }

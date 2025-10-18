@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('gender', ['male', 'female', 'other'])->default('male');
             $table->string('class');
             $table->string('address');
+            
             $table->timestamps();
         });
     }

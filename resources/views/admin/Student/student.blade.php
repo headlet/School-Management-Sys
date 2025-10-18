@@ -27,19 +27,19 @@
     </div>
 
     <!-- Student Grid -->
-    <div class="grid grid-cols-7 mt-2 ml-3 mr-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-7 mt-2 ml-3 mr-3 gap-y-2">
         @foreach($student as $students)
-        <div id="student-{{ $students->id }}" class="flex flex-col justify-center items-center w-40 border border-gray-400 rounded-xl shadow-lg p-2 bg-white hover:shadow-xl transition">
+        <div id="student-{{ $students->id }}" class="flex flex-col justify-center items-center w-36 h-52 border border-gray-400 rounded-xl shadow-lg p-2 bg-white hover:shadow-xl transition">
             <img src="{{ asset('storage/' . $students->photo) }}" alt="Student Image" class="rounded-full w-24 h-24 mb-2">
             <span class="text-sm text-gray-500">{{ $students->registration }}</span>
             <p class="font-semibold text-gray-800">{{ $students->full_name }}</p>
 
             <!-- Actions -->
             <div class="flex gap-3 mt-3">
-                <a href="#" class="flex items-center justify-center w-8 h-8 bg-blue-500 text-white rounded-full hover:bg-blue-600">
+                <a href="{{route('viewstd', $students->id)}}" class="flex items-center justify-center w-8 h-8 bg-blue-500 text-white rounded-full hover:bg-blue-600">
                     <i class="bi bi-eye"></i>
                 </a>
-                <a href="#" class="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white rounded-full hover:bg-yellow-600">
+                <a href="{{route('editstd', $students->id)}}" class="flex items-center justify-center w-8 h-8 bg-yellow-500 text-white rounded-full hover:bg-yellow-600">
                     <i class="bi bi-pencil"></i>
                 </a>
                 <a href="#"
@@ -53,7 +53,7 @@
         @endforeach
 
         {{-- Add Student Card --}}
-        <div class="flex flex-col justify-center items-center w-40 p-2 border border-dashed border-gray-400 rounded-xl shadow-inner bg-gray-50 hover:bg-gray-100 transition cursor-pointer">
+        <div class="flex flex-col justify-center items-center w-36 h-52 p-2 border border-dashed border-gray-400 rounded-xl shadow-inner bg-gray-50 hover:bg-gray-100 transition cursor-pointer">
             <a href="{{ route('addstudent') }}" class="inline-flex flex-col justify-center items-center w-36">
                 <i class="fas fa-plus text-2xl text-gray-600 mb-2"></i>
                 <p class="text-gray-700 font-medium">Add Student</p>
