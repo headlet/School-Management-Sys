@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('phone_number', 10);
             $table->string('photo');
             $table->date('dob');
+            $table->string('password');
+            $table->string('email')->unique();
             $table->date('doa');
             $table->enum('gender', ['male', 'female', 'other'])->default('male');
             $table->string('class');

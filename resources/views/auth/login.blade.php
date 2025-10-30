@@ -9,7 +9,7 @@
             <h2 class="text-center text-2xl font-bold mb-2 text-gray-700">Login Portal</h2>
             <p class="text-gray-500 text-sm mb-6 text-center">Select your role and sign in to your account</p>
 
-            <form action="" method="POST" class="w-full space-y-4">
+            <form action="{{route('signin')}}" method="POST" class="w-full space-y-4">
                 @csrf
 
                 <!-- Role Selection (Styled Radio Buttons) -->

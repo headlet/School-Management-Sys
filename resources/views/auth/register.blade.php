@@ -72,7 +72,7 @@
                 <!-- Login Link -->
                 <p class="text-center text-gray-600 text-sm mt-4">
                     Already have an account?
-                    <a href="{{route('Login')}}" class="text-blue-600 hover:underline font-medium">Login</a>
+                    <a href="{{route('login')}}" class="text-blue-600 hover:underline font-medium">Login</a>
                 </p>
             </form>
         </div>

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\student;
-use App\Models\Roles;
+use App\Models\Student;
+use App\Models\Role;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -15,7 +15,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student = student::all();
+        $student = Student::all();
 
         return view('admin.Student.student', compact('student'));
     }
@@ -38,6 +38,8 @@ class StudentController extends Controller
             'registration' => 'required|string|max:50|unique:students,registration',
             'phone_number' => 'required|string|size:10',
             'photo'        => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'password' => 'required',
+            'email' => 'required|email',
             'dob'          => 'required|date',
             'doa'          => 'required|date',
             'gender'       => 'required|in:male,female,other',
@@ -45,15 +47,15 @@ class StudentController extends Controller
             'address'      => 'required|string|max:255',
         ]);
 
-
+        $validation['password'] = Hash::make($validation['password']);
         if ($request->hasFile('photo')) {
             $path = $request->file('photo')->store('students', 'public');
             $validation['photo'] = $path;
         }
 
-        $student = student::create($validation);
+        $student = Student::create($validation);
 
-        $defaultRole = Roles::where('name', 'student')->first();
+        $defaultRole = Role::where('name', 'student')->first();
         if ($defaultRole) {
             $student->roles()->attach($defaultRole->id);
         }

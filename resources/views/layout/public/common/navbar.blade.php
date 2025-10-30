@@ -8,18 +8,26 @@
 
     <!-- Links -->
     <div class="hidden md:flex gap-4">
-       <a href="{{route('home')}}" class="px-3 py-1 rounded hover:bg-blue-400 text-white transition">Home</a>
+      <a href="{{route('home')}}" class="px-3 py-1 rounded hover:bg-blue-400 text-white transition">Home</a>
       <a href="#" class="px-3 py-1 rounded hover:bg-blue-400 text-white transition">Gallery</a>
       <a href="#" class="px-3 py-1 rounded hover:bg-blue-400 text-white transition">News & Event</a>
       <a href="#" class="px-3 py-1 rounded hover:bg-blue-400 text-white transition">Services</a>
       <a href="#" class="px-3 py-1 rounded hover:bg-blue-400 text-white transition">About Us</a>
     </div>
-
+    @guest('admin')
     <!-- Login Dropdown -->
-    <a href="{{route('Login')}}" name="login" class="px-2 py-1 text-white bg-transparent ">
+    <a href="{{route('login')}}" name="login" class="px-3 py-2 text-white  border-2 border-black rounded-lg bg-black hover:bg-amber-50 hover:text-black">
       🔒Login
 
     </a>
+    @endguest
 
+
+    @auth('admin')
+    <form method="POST" action="{{ route('logout') }}" id="logout-form" class="px-3 py-2 text-white  border-2 border-black rounded-lg bg-black hover:bg-amber-50 ">
+                @csrf
+                <button type="submit" class="text-white hover:text-black">Logout</button>
+            </form>
+    @endauth
   </div>
 </nav>

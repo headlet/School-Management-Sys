@@ -12,11 +12,14 @@
 
 <body class="bg-[#377B9A]">
 
-        @include('layout.public.common.navbar')
-   
+    @include('layout.public.common.navbar')
+
     <section>
         @yield('content');
     </section>
+
+
+    @include('layout.public.common.footer')
 </body>
 
 </html>

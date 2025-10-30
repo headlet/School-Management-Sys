@@ -56,6 +56,12 @@
                 <i class="fas fa-gear"></i>
                 <span class="hide-on-collapse transition-all duration-500 ease-in-out origin-left">Settings</span>
             </a>
+
+
+            <form method="POST" action="{{ route('logout') }}" id="logout-form">
+                @csrf
+                <button type="submit" class="text-red-500">Logout</button>
+            </form>
         </div>
     </nav>
 

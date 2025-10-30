@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
-class student extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Role;
+class Student extends Authenticatable
 {
     use HasFactory;
     protected $fillable = [
@@ -18,13 +19,15 @@ class student extends Model
         'gender',
         'class',
         'address',
+        'password',
+        'email',
     ];
 
     public function roles()
     {
-        return $this->morphToMany(Roles::class, 'user', 'user_roles', 'user_id', 'role_id');
+        return $this->morphToMany(Role::class, 'user', 'user_roles', 'user_id', 'role_id');
     }
-    
+
     //delete role when student is deleted
     protected static function booted()
     {

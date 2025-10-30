@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Models\Roles;
+use App\Models\Role;
 
 class UserController extends Controller
 {
@@ -45,14 +45,14 @@ class UserController extends Controller
         $validated['password'] = Hash::make($validated['password']);
         $user = User::create($validated);
 
-        $defaultRole = Roles::where('name', 'admin')->first();
+        $defaultRole = Role::where('name', 'admin')->first();
         if ($defaultRole) {
             $user->roles()->attach($defaultRole->id);
         }
 
 
 
-        return redirect()->route("Login")->with('success', 'Account Successfully created');
+        return redirect()->route("login")->with('success', 'Account Successfully created');
     }
 
     /**

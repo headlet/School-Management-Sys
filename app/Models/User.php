@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -41,22 +42,20 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+
+
+    public function roles()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
-
-
-     public function roles(){
-          return $this->morphToMany(Roles::class, 'user', 'user_roles', 'user_id', 'role_id');
+        return $this->morphToMany(Role::class, 'user', 'user_roles', 'user_id', 'role_id');
     }
 
     protected static function booted()
     {
-        static::deleting(function ($user){
+        static::deleting(function ($user) {
             $user->roles()->detach();
         });
     }

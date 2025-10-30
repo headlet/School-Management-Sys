@@ -3,32 +3,38 @@
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\MultiRoleLoginController;
 
 //home view
-Route::get('/', function () {
-    return view('public.index');
-})->name('home');
+Route::view('/', 'public.index')->name('home');
 
 //login && register
-Route::get('/login', [UserController::class, 'index'])->name('Login');
+Route::get('/login', [MultiRoleLoginController::class, 'showLoginForm'])->name('login');
+Route::post('/logins', [MultiRoleLoginController::class, 'login'])->name('signin');
 Route::get('/register', [UserController::class, 'create'])->name('register');
-Route::post('/registers', [UserController::class , 'store'])->name('signup');
+Route::post('/registers', [UserController::class, 'store'])->name('signup');
 
 
-// admin
-Route::get('/admin', function () {
-    return redirect()->route('dashboard');
+
+Route::middleware('auth:admin')->group(function () {
+    // admin
+    Route::view('/admin/dashboard', 'admin.components.dashboard')->name('dashboard');
+    Route::redirect('/admin', '/admin/dashboard');
+
+    Route::post('/logout', [MultiRoleLoginController::class, 'logout'])->name('logout');
+
+
+    // Students
+    Route::controller(StudentController::class)->group(function () {
+        Route::get('/admin/student', 'index')->name('student');
+        Route::get('/admin/addstudent', 'create')->name('addstudent');
+        Route::post('/addstd', 'store')->name("studentstore");
+        Route::get('/admin/{student}/view', 'show')->name('viewstd');
+        Route::get('/admin/{student}/edit', 'edit')->name('editstd');
+        Route::put('/admin/{student}', 'update')->name('updatestd');
+        Route::delete('/admin/{student}', 'destroy')->name('students.destroy');
+    });
 });
-Route::get('/admin/dashboard', function(){
-    return view('admin.components.dashboard');
-})->name('dashboard');
 
 
-// Students
-Route::get('/admin/student', [StudentController::class, 'index'])->name('student');
-Route::get('/admin/addstudent', [StudentController::class, 'create'])->name('addstudent');
-Route::post('/addstd', [StudentController::class, 'store'])->name("studentstore");
-Route::delete('/admin/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
-Route::get('/admin/{student}/view',[StudentController::class, 'show'])->name('viewstd');
-Route::get('/admin/{student}/edit', [StudentController::class, 'edit'])->name('editstd');
-Route::put('/admin/{student}', [StudentController::class, 'update'])->name('updatestd');
+// Route::resource('admin/student', StudentController::class)->names(['index'   => 'student','create'  => 'addstudent','store'   => 'studentstore','show'    => 'viewstd','edit'    => 'editstd','update'  => 'updatestd','destroy' => 'students.destroy',]);

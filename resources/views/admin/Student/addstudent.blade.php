@@ -129,6 +129,24 @@
                     class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
             </div>
 
+             <div class="relative w-96">
+                <label for="address"
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    Password*
+                </label>
+                <input type="password" id="password" name="password" placeholder="password" value="{{old('password')}}" required
+                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+            </div>
+
+            <div class="relative w-96">
+                <label for="address"
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    Email*
+                </label>
+                <input type="email" id="Email" name="email" placeholder="Email" value="{{old('email')}}" required
+                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+            </div>
+
         </div>
 
         <!-- Submit Button -->
