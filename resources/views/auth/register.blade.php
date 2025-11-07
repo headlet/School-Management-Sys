@@ -6,7 +6,7 @@
     <section class="flex flex-col md:flex-row justify-center items-center gap-0 mt-28">
 
         <!-- Image Side -->
-        <div class="md:h-[550px] w-full md:w-[30vw] bg-no-repeat rounded-l-xl bg-contain bg-center  bg-white shadow-xl p-10 bg-[url('{{ asset('image/Login.png') }}')]">
+        <div class="md:h-[550px] w-full hidden md:block md:w-[30vw] bg-no-repeat rounded-l-xl bg-contain bg-center  bg-white shadow-xl p-10 bg-[url('{{ asset('image/Login.png') }}')]">
         </div>
 
         <!-- Register Card -->
@@ -83,7 +83,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-s
 
 @if ($errors->any())
 <script>

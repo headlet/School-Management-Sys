@@ -39,7 +39,7 @@ class MultiRoleLoginController extends Controller
             return redirect()->route('dashboard')->with(['success', 'The login is successful']);
         }
 
-        return redirect('login')->withErrors(['email' => 'Invalid credentials for selected role.']);
+        return redirect('login')->withErrors(['role' => 'Incorrect Password or Email. Please try again with correct password and email']);
     }
 
 

@@ -15,7 +15,7 @@
     @include('layout.public.common.navbar')
 
     <section>
-        @yield('content');
+        @yield('content')
     </section>
 
 
