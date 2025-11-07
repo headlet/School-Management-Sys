@@ -25,7 +25,7 @@
         </aside>
 
         <!-- Main content -->
-        <main class="flex-1 ml-56 p-6 main transition-all duration-500 ease-in-out origin-left">
+        <main class="flex-1 ml-44 p-6 main h-screen transition-all duration-500 ease-in-out origin-left">
             @yield('content')
         </main>
     </div>

@@ -1,9 +1,10 @@
-<div class="d-flex">
-    <nav class="sidebar relative overflow-visible bg-gradient-to-br from-[#1a1c2e] to-[#16181f] flex flex-col transition-all duration-500 ease-in-out text-white w-56 h-[100vh]">
+<div class="d-flex h-[100vh]">
+    <nav class="sidebar relative overflow-visible bg-gradient-to-br from-[#1a1c2e] to-[#16181f] flex flex-col transition-all duration-500 ease-in-out text-white w-44 ">
 
         <!-- Toggle Button -->
         <button
-            class="toggle-btn absolute top-10 right-[-15px] bg-black w-[30px] h-[30px] border border-gray-300 rounded-full flex items-center justify-center shadow-xl transition-all duration-500 z-100"
+            class="toggle-btn absolute top-10 right-[-15px] bg-black w-[30px] h-[30px] border border-gray-300 rounded-full flex items-center justify-center shadow-xl transition-all duration-500 
+            z-100"
             type="button">
             <i class="fas fa-chevron-left text-white icon transition-transform duration-500"></i>
         </button>
@@ -60,7 +61,7 @@
 
             <form method="POST" action="{{ route('logout') }}" id="logout-form">
                 @csrf
-                <button type="submit" class="text-red-500">Logout</button>
+                <button type="submit" class="text-red-500 ">Logout</button>
             </form>
         </div>
     </nav>
@@ -77,8 +78,8 @@
 
         $('.icon').toggleClass('rotate-180');
 
-        $('.sidebar').toggleClass('w-56 w-14');
-        $('.main').toggleClass('ml-56 ml-14');
+        $('.sidebar').toggleClass('w-44 w-14');
+        $('.main').toggleClass('ml-44 ml-14');
         $('.hide-on-collapse').toggleClass('opacity-0 scale-0');
         $('.list').addClass('hidden').toggleClass('students');
     });
