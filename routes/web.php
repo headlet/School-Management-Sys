@@ -4,6 +4,8 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\MultiRoleLoginController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\TeacherController;
 
 //home view
 Route::view('/', 'public.index')->name('home');
@@ -34,6 +36,27 @@ Route::middleware('auth:admin')->group(function () {
         Route::put('/admin/{student}', 'update')->name('updatestd');
         Route::delete('/admin/{student}', 'destroy')->name('students.destroy');
     });
+
+
+    //Teacher
+    Route::controller(TeacherController::class)->group(function () {
+        Route::get('/admin/teacher', 'index')->name('teacher');
+        Route::get('/admin/addteacher', 'create')->name('addteacher');
+        Route::get('/admin/{teacher}/show', 'show')->name('teachershow');
+        Route::get('/admin/{teacher}', 'edit')->name('editteacher');
+        Route::post('admin/', 'store')->name('teacherstore');
+        Route::put('/admin/teacher/{teacher}', 'update')->name('updateteacher');
+        Route::delete('/admin/teacher/{teacher}', 'destroy')->name('teacher.destroy');
+    });
+
+    //gallery
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+    Route::post('/gallery/post', [GalleryController::class, 'store'])->name('uploadimg');
+    Route::delete('/gallery/{gallery}', [GalleryController::class, 'destroy'])->name('deleteimg');
+   
+
+
+
 });
 
 

@@ -50,8 +50,6 @@ class UserController extends Controller
             $user->roles()->attach($defaultRole->id);
         }
 
-
-
         return redirect()->route("login")->with('success', 'Account Successfully created');
     }
 

@@ -1,7 +1,7 @@
 <!-- Contact Section -->
 <section class="bg-[#113975] py-12 px-6  text-white w-full">
 
-    <h2 class="text-3xl font-bold text-center  text-black">Contact Us</h2>
+    <h2 class="text-3xl font-bold text-center  text-white">Contact Us</h2>
     <div class="bg-[#113975] flex flex-col lg:flex-row justify-center items-center  gap-12 ">
 
 
@@ -12,32 +12,32 @@
 
 
             <!-- Name + Phone (responsive row) -->
-            <div class="flex flex-col sm:flex-row gap-4 mb-4">
+            <div class="flex flex-col sm:flex-row gap-4 mb-4 text-white">
                 <!-- Name -->
                 <div class="w-full sm:w-1/2">
-                    <label for="name" class="block text-sm font-medium mb-1 text-black">Name</label>
+                    <label for="name" class="block text-sm font-medium mb-1 ">Name</label>
                     <input type="text" id="name" name="fullname" placeholder="John M"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg  focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 </div>
 
                 <!-- Phone -->
                 <div class="w-full sm:w-1/2">
-                    <label for="number" class="block text-sm font-medium mb-1 text-black">Phone</label>
+                    <label for="number" class="block text-sm font-medium mb-1 ">Phone</label>
                     <input type="number" id="number" name="number"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg  focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 </div>
             </div>
 
             <!-- Email -->
             <div class="mb-4">
-                <label for="Email" class="block text-sm font-medium mb-1 text-black">Email</label>
+                <label for="Email" class="block text-sm font-medium mb-1 text-white">Email</label>
                 <input type="email" id="Email" name="email"
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
 
             <!-- Message -->
             <div class="mb-6">
-                <label for="message" class="block text-sm font-medium mb-1 text-black">Message</label>
+                <label for="message" class="block text-sm font-medium mb-1 text-white">Message</label>
                 <textarea id="message" name="message" rows="4"
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
             </div>

@@ -36,10 +36,10 @@ return [
             'provider' => 'users',
         ],
 
-        // 'teacher' => [
-        //     'driver' => 'session',
-        //     'provider' => 'teachers',
-        // ],
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teachers',
+        ],
 
         'student' => [
             'driver' => 'session',
@@ -62,10 +62,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'teachers' => [
-        //     'driver' => 'eloquent',
-        //     'model' => App\Models\Teacher::class,
-        // ],
+        'teachers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\teacher::class,
+        ],
 
         'students' => [
             'driver' => 'eloquent',

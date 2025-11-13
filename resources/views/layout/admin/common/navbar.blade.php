@@ -1,6 +1,6 @@
-<nav class="bg-gray-900 text-white px-6 py-3 flex items-center justify-between shadow-lg h-16">
+<nav class="bg-gray-900 text-white px-6 py-3 flex items-center justify-between shadow-lg h-16 w-full">
   <!-- Left Logo -->
- 
+
   <div class="flex items-center ">
     <div class="w-52">
       <span class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent ">
@@ -19,12 +19,28 @@
   </div>
 
   <!-- Right Profile -->
-  <div class="flex items-center space-x-3 logout">
-    <span class="hidden sm:block">{{ Auth::guard('admin')->user()->name }}</span>
-    <img src="{{asset('storage/'. Auth::guard('admin')->user()->photo)}}" alt="profile"
-      class="w-10 h-10 rounded-full border-2 border-gray-500">
-  </div>
+ 
+    <div class="relative text-black">
+      <div class="flex items-center space-x-3 cursor-pointer" id="profileDropdownButton">
+        <span class=" text-white">{{ Auth::guard('admin')->user()->name }}</span>
+        <img src="{{asset('storage/'. Auth::guard('admin')->user()->photo)}}" alt="profile"
+          class="w-10 h-10 rounded-full border-2 border-gray-500">
+      </div>
+      
+      <!-- S -->
+      <div id="profileDropdownMenu" class="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg hidden">
+        <a href="" class="block px-4 py-2 hover:bg-gray-100">Account Settings</a>
+        <a href="}" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+        <form action="{{ route('logout') }}" method="POST">
+          @csrf
+          <button type="submit" class="w-full text-left px-4 py-2 hover:bg-gray-100">Logout</button>
+        </form>
+      </div>
+    </div>
+
 </nav>
+
+
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
@@ -48,4 +64,7 @@
     }
   });
 
+  $('#profileDropdownButton').click(function(){
+      $('#profileDropdownMenu').toggle('hidden');
+  });
 </script>

@@ -9,7 +9,7 @@ $q = asset('image/hero1.png');
 <section class="relative h-screen bg-[#113975] overflow-hidden flex items-center justify-center px-4">
 
   <!-- Content (on top of waves) -->
-  <div class="relative z-[1100] text-center text-white flex flex-col md:flex-row justify-between items-center gap-4 w-full max-w-[1200px]">
+  <div class="relative z-[1100] text-center text-white flex flex-col md:flex-row justify-center items-center gap-4 w-full max-w-[1200px]">
 
     <div class="h-auto md:h-[60vh] mt-20 md:mt-60 max-w-md text-center md:text-left">
       <h1 class="anim text-xl md:text-3xl font-bold mb-4" id="htext">Hello, This is School Management Sys</h1>

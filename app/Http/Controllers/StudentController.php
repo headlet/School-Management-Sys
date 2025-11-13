@@ -118,6 +118,7 @@ class StudentController extends Controller
     {
         if ($student->photo && Storage::disk('public')->exists($student->photo)) {
             Storage::disk('public')->delete($student->photo);
+            dd('running');
         }
 
         $student->delete();

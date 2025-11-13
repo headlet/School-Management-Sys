@@ -1,4 +1,4 @@
-@extends('layout.public.main')
+@extends('main')
 
 @php
 $p = asset("image/why/desktop-min.png");
@@ -9,6 +9,7 @@ $p = asset("image/why/desktop-min.png");
 @include('public.components.hero')
 @include('public.components.Info')
 @include('public.components.gallery')
+@include('public.components.gallerys')
 @include('public.components.contact')
 
 

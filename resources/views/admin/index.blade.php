@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css" />
 
 </head>
 <body class="relative min-h-screen bg-gray-100">
@@ -25,7 +26,7 @@
         </aside>
 
         <!-- Main content -->
-        <main class="flex-1 ml-44 p-6 main h-screen transition-all duration-500 ease-in-out origin-left">
+        <main class="flex-1 ml-56 p-6 main h-screen transition-all duration-500 ease-in-out origin-left">
             @yield('content')
         </main>
     </div>

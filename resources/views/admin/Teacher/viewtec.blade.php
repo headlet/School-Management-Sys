@@ -5,15 +5,15 @@
 <div class="container mx-auto p-4">
 
     <div class="flex flex-col md:flex-row justify-between items-center h-auto md:h-14 border border-gray-300 rounded-lg shadow-md px-4 mb-4 bg-white gap-3 md:gap-0">
-        <h2 class="text-lg font-semibold text-gray-800 text-center md:text-left">View Students | Report</h2>
+        <h2 class="text-lg font-semibold text-gray-800 text-center md:text-left">View Teachers | Report</h2>
 
         <div class="flex flex-wrap justify-center items-center gap-2">
 
-            <a href="{{route('student')}}" class="flex items-center gap-x-2 px-3 py-2 rounded-md bg-blue-400 hover:bg-gray-300 transition btnhe">
+            <a href="{{route('teacher')}}" class="flex items-center gap-x-2 px-3 py-2 rounded-md bg-blue-400 hover:bg-gray-300 transition btnhe">
                 Back
             </a>
 
-            <a href="{{route('editstd', $student->id)}}" class="flex items-center gap-x-2 px-3 py-2 rounded-md bg-red-400 hover:bg-gray-300 transition btnhe">
+            <a href="{{route('editteacher', $teacher->id)}}" class="flex items-center gap-x-2 px-3 py-2 rounded-md bg-red-400 hover:bg-gray-300 transition btnhe">
                 <span>Edit</span>
             </a>
 
@@ -29,18 +29,15 @@
         <!-- Left: Student Info -->
         <div class="bg-white p-6 rounded-lg shadow w-full">
             <div class="flex flex-col items-center">
-                <img src="{{asset('storage/'. $student->photo)}}" alt="Profile" class="rounded-full mb-3 w-32 h-32 object-cover">
-                <h3 class="text-purple-600 text-xl font-semibold text-center">{{$student->full_name}}</h3>
+                <img src="{{asset('storage/'. $teacher->photo)}}" alt="Profile" class="rounded-full mb-3 w-32 h-32 object-cover">
+                <h3 class="text-purple-600 text-xl font-semibold text-center">{{$teacher->name}}</h3>
             </div>
 
             <div class="mt-4 text-gray-600 space-y-2 text-sm w-full break-words">
-                <p><span class="font-semibold">Registration No:</span> <a href="#" class="text-blue-600">{{$student->registration}}</a></p>
-                <p><span class="font-semibold">Date of Admission:</span> <span class="text-blue-600">{{$student->doa}}</span></p>
-                <p><span class="font-semibold">Class:</span> {{$student->class}}</p>
-                <p><span class="font-semibold">Date of Birth:</span> {{$student->dob}}</p>
-                <p><span class="font-semibold">Gender:</span> {{$student->gender}}</p>
-                <p><span class="font-semibold">Phone Number:</span> {{$student->phone_number}}</p>
-                <p><span class="font-semibold">Address:</span> {{$student->address}}</p>
+                <p><span class="font-semibold">Date of Birth:</span> {{$teacher->DOB}}</p>
+                <p><span class="font-semibold">Gender:</span> {{$teacher->gender}}</p>
+                <p><span class="font-semibold">Phone Number:</span> {{$teacher->phone_number}}</p>
+                <p><span class="font-semibold">Address:</span> {{$teacher->Address}}</p>
             </div>
         </div>
 

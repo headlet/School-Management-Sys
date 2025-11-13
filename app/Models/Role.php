@@ -24,8 +24,8 @@ class Role extends Model
         return $this->morphedByMany(Student::class, 'user', 'user_roles', 'role_id', 'user_id');
     }
 
-    // public function teachers()
-    // {
-    //     return $this->morphedByMany(Teacher::class, 'user', 'user_roles', 'role_id', 'user_id');
-    // }
+    public function teachers()
+    {
+        return $this->morphedByMany(Teacher::class, 'user', 'user_roles', 'role_id', 'user_id');
+    }
 }

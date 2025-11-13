@@ -1,9 +1,9 @@
-<section class="bg-[#113975] py-6 px-2">
+<section class="bg-[#113975]  px-2 ">
 
-    <div class="grid grid-cols-1  lg:grid-cols-2 place-items-center text-white p-28 space-y-8">
+    <div class="grid grid-cols-1  lg:grid-cols-2 place-items-center text-white pl-28 pr-28 space-y-8">
         <div class="w-[70vw] lg:w-[500px] lg:h-[300px] lg:text-left space-y-4 text-center">
             <h2 class='text-3xl md:text-3xl font-bold text-center'>Why DEMO SCHOOL is the best school management?</h2>
-            <p class="text-gray-200 text-sm md:text-base leading-relaxed">“DEMO SCHOOL is the best school management system because it brings everything a school needs into one platform—easy to use, secure, and reliable.
+            <p class="text-gray-200 text-sm md:text-center leading-relaxed">“DEMO SCHOOL is the best school management system because it brings everything a school needs into one platform—easy to use, secure, and reliable.
                 From admissions and attendance to exams, fees, and reports, it makes daily operations faster, smarter, and more organized for teachers, students, and parents.”</p>
         </div>
 
@@ -43,3 +43,4 @@
         </div>
     </div>
 </section>
+

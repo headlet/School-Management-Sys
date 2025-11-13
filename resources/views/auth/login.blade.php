@@ -1,4 +1,4 @@
-@extends('layout.public.main')
+@extends('main')
 
 @section('content')
 <div class="bg-blue-700 min-h-screen flex justify-center items-center px-4">

@@ -1,157 +1,158 @@
 @extends('admin.index')
 
 @section('content')
-<div class="p-6">
+<div class="p-3 sm:p-4 md:p-6">
 
     <!-- Header -->
-    <div class="flex justify-between items-center h-14 border border-gray-300 rounded-lg shadow-md px-4 mb-6 bg-white">
-        <h2 class="text-lg font-semibold text-gray-800">Add a Student</h2>
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 min-h-14 sm:h-14 border border-gray-300 rounded-lg shadow-md px-3 sm:px-4 py-3 sm:py-0 mb-4 sm:mb-6 bg-white">
+        <h2 class="text-base sm:text-lg font-semibold text-gray-800">Add a Student</h2>
 
-        <button type="button" class="flex items-center gap-x-2 px-3 py-2 rounded-md bg-gray-200 hover:bg-gray-300 transition">
+        <button type="button" class="flex items-center gap-x-2 px-3 py-2 text-sm sm:text-base rounded-md bg-gray-200 hover:bg-gray-300 transition w-full sm:w-auto justify-center">
             <i class="bi bi-search"></i>
             <span>Import Student</span>
         </button>
     </div>
 
     <!-- Form -->
-    <form action="{{route('studentstore')}}" method="POST" enctype="multipart/form-data" class="flex flex-col gap-10">
+    <form action="{{route('studentstore')}}" method="POST" enctype="multipart/form-data" class="flex flex-col gap-6 sm:gap-8 md:gap-10">
         @csrf
 
         <!-- 1. Student Information -->
-        <div class="border-b-[2px] border-black font-semibold pb-1">
+        <div class="border-b-[2px] border-black font-semibold pb-1 text-sm sm:text-base">
             1. Student Information
         </div>
 
-        <div class="grid grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
 
             <!-- Full Name -->
-            <div class="relative w-96">
+            <div class="relative w-full">
                 <label for="full_name"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Student Name*
                 </label>
-                <input type="text" id="full_name" name="full_name" value="{{old('full_name')}}" placeholder="Name of student" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="text" id="full_name" name="full_name" value="{{old('full_name')}}" placeholder="Name of student"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
 
             <!-- Registration -->
-            <div class="relative w-96">
+            <div class="relative w-full">
                 <label for="registration"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Registration No.*
                 </label>
-                <input type="text" id="registration" name="registration" value="{{old('registration')}}" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="text" id="registration" name="registration" value="{{old('registration')}}"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
 
             <!-- Phone Number -->
-            <div class="relative w-96">
+            <div class="relative w-full">
                 <label for="phone_number"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Phone Number*
                 </label>
-                <input type="text" id="phone_number" name="phone_number" value="{{old('phone_number')}}" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="text" id="phone_number" name="phone_number" value="{{old('phone_number')}}"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
 
             <!-- Photo -->
-            <div class="relative w-96">
+            <div class="relative w-full">
                 <label for="photo"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Photo*
                 </label>
-                <input type="file" id="photo" name="photo" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="file" id="photo" name="photo"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-2.5 sm:py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-xs sm:text-sm file:mr-2 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
             </div>
 
             <!-- Date of Birth -->
-            <div class="relative w-96">
+            <div class="relative w-full">
                 <label for="dob"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Date Of Birth*
                 </label>
-                <input type="date" id="dob" name="dob" value="{{old('dob')}}" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="date" id="dob" name="dob" value="{{old('dob')}}"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
 
             <!-- Date of Admission -->
-            <div class="relative w-96">
+            <div class="relative w-full">
                 <label for="doa"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Date Of Admission*
                 </label>
-                <input type="date" id="doa" name="doa" value="{{old('doa')}}" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="date" id="doa" name="doa" value="{{old('doa')}}"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
 
         </div>
 
         <!-- 2. Other Information -->
-        <div class="border-b-[2px] border-black font-semibold pb-1">
+        <div class="border-b-[2px] border-black font-semibold pb-1 text-sm sm:text-base">
             2. Other Information
         </div>
 
-        <div class="grid grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
 
             <!-- Gender -->
-            <div class="relative w-96">
+            <div class="relative w-full">
                 <label for="gender"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Gender*
                 </label>
-                <select id="gender" name="gender" required
-                    class="w-full h-12 px-4 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                <select id="gender" name="gender"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base appearance-none bg-white">
+                    <option value="">Select Gender</option>
+                    <option value="male" {{old('gender') == 'male' ? 'selected' : ''}}>Male</option>
+                    <option value="female" {{old('gender') == 'female' ? 'selected' : ''}}>Female</option>
+                    <option value="other" {{old('gender') == 'other' ? 'selected' : ''}}>Other</option>
                 </select>
             </div>
 
-
-
             <!-- Class -->
-            <div class="relative w-96">
+            <div class="relative w-full">
                 <label for="class"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Class*
                 </label>
-                <input type="text" id="class" name="class" placeholder="Class" value="{{old('class')}}" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="text" id="class" name="class" placeholder="Class" value="{{old('class')}}"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
 
             <!-- Address -->
-            <div class="relative w-96">
+            <div class="relative w-full">
                 <label for="address"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Address*
                 </label>
-                <input type="text" id="address" name="address" placeholder="Address" value="{{old('address')}}" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="text" id="address" name="address" placeholder="Address" value="{{old('address')}}"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
 
-             <div class="relative w-96">
-                <label for="address"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+            <!-- Password -->
+            <div class="relative w-full">
+                <label for="password"
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Password*
                 </label>
-                <input type="password" id="password" name="password" placeholder="password" value="{{old('password')}}" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="password" id="password" name="password" placeholder="Password" value="{{old('password')}}"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
 
-            <div class="relative w-96">
-                <label for="address"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-sm px-2 rounded-full shadow">
+            <!-- Email -->
+            <div class="relative w-full">
+                <label for="Email"
+                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
                     Email*
                 </label>
-                <input type="email" id="Email" name="email" placeholder="Email" value="{{old('email')}}" required
-                    class="w-full h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all">
+                <input type="email" id="Email" name="email" placeholder="Email" value="{{old('email')}}"
+                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
 
         </div>
 
         <!-- Submit Button -->
-        <div class="flex justify-end mt-10">
-            <button type="submit" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-md transition-all flex items-center gap-2">
+        <div class="flex justify-center sm:justify-end mt-6 sm:mt-8 md:mt-10">
+            <button type="submit" class="w-full sm:w-auto px-6 py-2.5 sm:py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-md transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
                 <i class="bi bi-save"></i> Save Student
             </button>
         </div>
@@ -165,13 +166,13 @@
     <script>
         Swal.fire({
             toast: true,
-            position: 'top-end', // 👈 top-right corner
+            position: 'top-end',
             icon: 'success',
             title: "{{ session('success') }}",
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
-            background: '#4ade80', // green-ish
+            background: '#4ade80',
             color: '#fff',
         });
     </script>
@@ -188,12 +189,10 @@
             showConfirmButton: false,
             timer: 4000,
             timerProgressBar: true,
-            background: '#f87171', // red-ish
+            background: '#f87171',
             color: '#fff',
         });
     </script>
 @endif
-
-
 
 @endsection
