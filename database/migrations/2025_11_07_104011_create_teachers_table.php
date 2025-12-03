@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('Address');
             $table->enum('gender', ['male', 'female', 'other']);
             $table->date('DOB');
-            $table->string('class');
-            $table->string('subject');
             $table->string('photo');
 
             $table->timestamps();

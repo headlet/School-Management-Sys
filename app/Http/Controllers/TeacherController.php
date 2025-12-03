@@ -47,8 +47,6 @@ class TeacherController extends Controller
             'Address' => 'required|string',
             'password' => 'required',
             'email' => 'required|email',
-            'class' => 'required',
-            'subject' => 'required|string'
         ]);
         $validation['password'] = Hash::make($validation['password']);
 
@@ -95,9 +93,7 @@ class TeacherController extends Controller
             'phone_number' => 'required|size:10|string',
             'DOB' => 'required|date',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'Address' => 'required|string',
-            'class' => 'required',
-            'subject' => 'required|string'
+            'Address' => 'required|string'
         ]);
         if ($request->hasFile('photo')) {
             if ($teacher->photo && storage::disk('public')->exists($teacher->photo)) {

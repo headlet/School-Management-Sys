@@ -12,7 +12,9 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        //
+
+        $class = classes::all();
+        return view('admin.classes.class', compact("class"));
     }
 
     /**

@@ -34,12 +34,10 @@
             </div>
 
             <div class="mt-4 text-gray-600 space-y-2 text-sm w-full break-words">
-                 <p><span class="font-semibold">Subject:</span> {{$teacher->subject}}</p>
                 <p><span class="font-semibold">Date of Birth:</span> {{$teacher->DOB}}</p>
                 <p><span class="font-semibold">Gender:</span> {{$teacher->gender}}</p>
                 <p><span class="font-semibold">Phone Number:</span> {{$teacher->phone_number}}</p>
                 <p><span class="font-semibold">Address:</span> {{$teacher->Address}}</p>
-                <p><span class="font-semibold">Class Teacher:</span> {{$teacher->class}}</p>
             </div>
         </div>
 

@@ -97,26 +97,7 @@
                     value="{{ old('Address', $teacher->Address) }}" 
                     class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
             </div>
-
-             <!-- Class -->
-            <div class="relative w-full">
-                <label for="class"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
-                    Class*
-                </label>
-                <input type="class" id="class" name="class" placeholder="class" value="{{old('class' , $teacher->class)}}" 
-                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
-            </div>
-
-             <!-- Subject -->
-            <div class="relative w-full">
-                <label for="subject"
-                    class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">
-                    Subject*
-                </label>
-                <input type="subject" id="subject" name="subject" placeholder="subject" value="{{old('subject', $teacher->subject)}}" 
-                    class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
-            </div>
+            
 
         </div>
 

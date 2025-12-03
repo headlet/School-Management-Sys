@@ -4,6 +4,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\MultiRoleLoginController;
+use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\TeacherController;
@@ -21,9 +22,9 @@ Route::post('/registers', [UserController::class, 'store'])->name('signup');
 
 Route::middleware('auth:admin')->group(function () {
     // admin
-    Route::get('/admin/dashboards', [dashboardController::class, 'index'] )->name('dashboard');
+    Route::get('/admin/dashboards', [dashboardController::class, 'index'])->name('dashboard');
     Route::redirect('/admin', '/admin/dashboard');
-    
+
 
     Route::post('/logout', [MultiRoleLoginController::class, 'logout'])->name('logout');
 
@@ -53,13 +54,18 @@ Route::middleware('auth:admin')->group(function () {
     });
 
     //gallery
-    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
-    Route::post('/gallery/post', [GalleryController::class, 'store'])->name('uploadimg');
-    Route::delete('/gallery/{gallery}', [GalleryController::class, 'destroy'])->name('deleteimg');
-   
+    Route::controller(GalleryController::class)->group(function () {
+        Route::get('/gallery', 'index')->name('gallery');
+        Route::post('/gallery/post', 'store')->name('uploadimg');
+        Route::delete('/gallery/{gallery}', 'destroy')->name('deleteimg');
+    });
+
+
 
     //class
-    Route::view('/class', 'admin.classes.class')->name('class');
+    Route::get('/class', [ClassesController::class, 'index'])->name('classes');
+    Route::get('/newclass', [ClassesController::class, 'create'])->name('newclass');
+    Route::get('/addclass', [ClassesController::class, 'store'])->name('storeclass');
 
 });
 

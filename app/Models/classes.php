@@ -9,7 +9,7 @@ class classes extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['class', 'section'];
+  protected $fillable = ['Class', 'Section'];
 
   public function student(){
     return $this->belongsToMany(Student::class,'class_users', 'class_id', 'user_id' );

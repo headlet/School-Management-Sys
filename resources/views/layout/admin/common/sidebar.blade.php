@@ -78,7 +78,7 @@
                 </button>
                 <ul class='hidden class list list-circle border-l-2 text-sm ml-4'>
                     <li>
-                        <a href="{{route('class')}}" class="flex items-center gap-3 p-3 font-normal {{ request()->routeIs('class') ? 'border border-white bg-blue-300 text-white sidebar transition-all duration-300 ease-in-out' : 'text-gray-200 hover:bg-gray-700 sidebar'}}">
+                        <a href="{{route('classes')}}" class="flex items-center gap-3 p-3 font-normal {{ request()->routeIs('classes') ? 'border border-white bg-blue-300 text-white sidebar transition-all duration-300 ease-in-out' : 'text-gray-200 hover:bg-gray-700 sidebar'}}">
                             <span class="hide-on-collapse transition-all duration-500 ease-in-out origin-left">All Classes</span>
                         </a>
                     </li>
