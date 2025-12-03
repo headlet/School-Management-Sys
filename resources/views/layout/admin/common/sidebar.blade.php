@@ -84,7 +84,7 @@
                     </li>
 
                     <li>
-                        <a href="" class="flex items-center gap-3 p-3 font-normal {{ request()->routeIs('') ? 'border border-white bg-blue-300 text-white sidebar transition-all duration-300 ease-in-out' : 'text-gray-200 hover:bg-gray-700 sidebar'}}">
+                        <a href="{{route('newclass')}}" class="flex items-center gap-3 p-3 font-normal {{ request()->routeIs('newclass') ? 'border border-white bg-blue-300 text-white sidebar transition-all duration-300 ease-in-out' : 'text-gray-200 hover:bg-gray-700 sidebar'}}">
                             <span class="hide-on-collapse transition-all duration-500 ease-in-out origin-left">New Classes</span>
                         </a>
                     </li>
