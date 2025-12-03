@@ -55,11 +55,45 @@
 
        
         <div class="flex flex-col justify-center items-center w-full min-h-[100px] sm:min-h-[150px] md:h-10 p-2 sm:p-3 border-2 border-dashed border-gray-400 rounded-lg sm:rounded-xl shadow-inner bg-gray-50 hover:bg-gray-100 transition cursor-pointer">
-            <a href=" route('addstudent') " class="inline-flex flex-col justify-center items-center w-full h-full">
+            <a href=" {{route('newclass')}} " class="inline-flex flex-col justify-center items-center w-full h-full">
                 <i class="fas fa-plus text-lg sm:text-xl md:text-2xl text-gray-600 mb-1 sm:mb-2"></i>
                 <p class="text-gray-700 font-medium text-xs sm:text-sm md:text-base">Add New</p>
             </a>
         </div>
     </div>
 </div>
+
+
+@if (session('success'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: "{{ session('success') }}",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            background: '#4ade80',
+            color: '#fff',
+        });
+    </script>
+@endif
+
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'error',
+            title: 'Validation Failed!',
+            html: `{!! implode('<br>', $errors->all()) !!}`,
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            background: '#f87171',
+            color: '#fff',
+        });
+    </script>
+@endif
 @endsection

@@ -30,7 +30,14 @@ class ClassesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validate([
+            "Class" => 'required',
+            "Section" => 'required|string'
+        ]);
+
+        classes::create($validation);
+
+        return redirect()->route('classes')->with("success" ,'Class successfully created');
     }
 
     /**
