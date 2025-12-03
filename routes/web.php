@@ -43,6 +43,7 @@ Route::middleware('auth:admin')->group(function () {
     //Teacher
     Route::controller(TeacherController::class)->group(function () {
         Route::get('/admin/teacher', 'index')->name('teacher');
+        Route::get('/teachercart', 'card')->name("teachercard");
         Route::get('/admin/addteacher', 'create')->name('addteacher');
         Route::get('/admin/{teacher}/show', 'show')->name('teachershow');
         Route::get('/admin/{teacher}', 'edit')->name('editteacher');

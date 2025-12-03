@@ -66,7 +66,7 @@
                     </li>
 
                     <li>
-                        <a href="{{route('addteacher')}}" class="flex items-center gap-3 p-3 font-normal {{ request()->routeIs('addteacher') ? 'border border-white bg-blue-300 text-white sidebar transition-all duration-300 ease-in-out' : 'text-gray-200 hover:bg-gray-700 sidebar'}}">
+                        <a href="{{route('teachercard')}}" class="flex items-center gap-3 p-3 font-normal {{ request()->routeIs('teachercard') ? 'border border-white bg-blue-300 text-white sidebar transition-all duration-300 ease-in-out' : 'text-gray-200 hover:bg-gray-700 sidebar'}}">
                             <span class="hide-on-collapse transition-all duration-500 ease-in-out origin-left">Staff ID Cards</span>
                         </a>
                     </li>

@@ -19,7 +19,11 @@ class TeacherController extends Controller
         $teachers = teacher::all();
         return view('admin.Teacher.teacher', compact('teachers'));
     }
-
+    
+    public function card(){
+        $carddetails = teacher::paginate(20);
+        return view("admin.Teacher.teachercard", compact('carddetails'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -42,7 +46,9 @@ class TeacherController extends Controller
             'DOB' => 'date|required',
             'Address' => 'required|string',
             'password' => 'required',
-            'email' => 'required|email'
+            'email' => 'required|email',
+            'class' => 'required',
+            'subject' => 'required|string'
         ]);
         $validation['password'] = Hash::make($validation['password']);
 
@@ -89,7 +95,9 @@ class TeacherController extends Controller
             'phone_number' => 'required|size:10|string',
             'DOB' => 'required|date',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'Address' => 'required|string'
+            'Address' => 'required|string',
+            'class' => 'required',
+            'subject' => 'required|string'
         ]);
         if ($request->hasFile('photo')) {
             if ($teacher->photo && storage::disk('public')->exists($teacher->photo)) {

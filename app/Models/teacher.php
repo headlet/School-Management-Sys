@@ -17,7 +17,9 @@ class teacher extends Model
         'Address',
         'gender',
         'DOB',
-        'photo'
+        'photo',
+        'subject',
+        'class',
     ];
 
 
