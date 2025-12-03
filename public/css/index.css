@@ -1,3 +1,5 @@
+/* Wave index */
+
 .wave {
     animation: wave 10s linear infinite;
     will-change: background-position;
@@ -6,6 +8,10 @@
 .wave2 {
     animation: wave2 12s linear infinite;
     will-change: background-position;
+}
+
+.wave3 {
+    animation: wave3 16s linear infinite;
 }
 
 @keyframes wave {
@@ -28,10 +34,6 @@
     }
 }
 
-.wave3 {
-    animation: wave3 16s linear infinite;
-}
-
 @keyframes wave3 {
     from {
         background-position-x: 0;
@@ -43,7 +45,14 @@
 
 }
 
-/* Animate the background div up and down */
+/* 
+Mobile and student */
+.animate-bg-float {
+    animation: bg-float 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+
 @keyframes bg-float {
     0% {
         transform: translateY(0px);
@@ -53,28 +62,6 @@
         transform: translateY(-10px);
     }
 
-    /* smaller movement */
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-.animate-bg-float {
-    animation: bg-float 6s ease-in-out infinite;
-    will-change: transform;
-}
-
-/* Animate the img up and down */
-@keyframes img-float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-
-    /* bigger movement for foreground */
     100% {
         transform: translateY(0px);
     }
@@ -85,6 +72,21 @@
     will-change: transform;
 }
 
+@keyframes img-float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* hero text */
 .anim {
     opacity: 0;
     transform: translateY(30px);
@@ -106,6 +108,10 @@
     animation-delay: 1s;
 }
 
+
+
+
+/* info section */
 .iconan {
     animation: icon-float 2s ease-in-out infinite;
     will-change: transform;
@@ -138,30 +144,36 @@
     animation-delay: 1s;
 }
 
+
+
+/* Info Gallery */
+
 .display {
     animation: up 3.5s ease-in-out infinite;
 }
 
 @keyframes up {
-    0% { transform: translateY(0px);}
-
-    50% {transform: translateY(-20px);}
-
-    100% {transform: translateY(0px);}
-}
-
-.dis1{animation-delay: 0s;}
-.dis2{animation-delay: 0.5s;}
-.dis3{animation-delay: 1s;}
-/* .infoan {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: movedown 0.5s linear forwards;
-}
-
-@keyframes movedown {
-    100% {
-        opacity: 1;
-        transform:translateY(0px);
+    0% {
+        transform: translateY(0px);
     }
-} */
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.dis1 {
+    animation-delay: 0s;
+}
+
+.dis2 {
+    animation-delay: 0.5s;
+}
+
+.dis3 {
+    animation-delay: 1s;
+}

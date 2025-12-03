@@ -34,18 +34,32 @@
 
     </div>
 
+    <div class="m-3 hover:text-red-400 cursor-pointer">
+        <p class=" hover:text-red-400 cursor-pointer selectall hidden">Select All</p>
+    </div>
+
     <!-- Gallery Grid -->
     <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center">
 
         @if ($img->count() > 0)
         @foreach ($img as $index => $imgs)
-        <div class="w-full aspect-[3/2] md:aspect-[4/3] border-2 border-white overflow-hidden shadow-lg shadow-black btnhide">
-            <input type="checkbox" data-id="{{$imgs->id}}" data-url="{{route('deleteimg', $imgs->id)}}" class="deleteid absolute w-6 h-6 hidden btnhide">
+        <div class="relative w-full aspect-[3/2] md:aspect-[4/3] border-2 border-white overflow-hidden shadow-lg shadow-black btnhide">
+
+            <input type="checkbox"
+                data-id="{{$imgs->id}}"
+                data-url="{{route('deleteimg', $imgs->id)}}"
+                class="deleteid absolute top-2 left-2 w-6 h-6 hidden">
+
             <img src="{{ asset('storage/' . $imgs->photo) }}"
-                class="w-full h-full object-cover cursor-pointer imgclick btnhide"
-                id='' data-id='{{$index}}'>
+                class="w-full h-full object-cover cursor-pointer imgclick"
+                data-id="{{ $index }}">
+
+            <p class="absolute bottom-0 left-0 w-full bg-opacity-60 bg-black text-white text-xs md:text-sm px-2 py-1 text-center textimg hidden pointer-events-none">
+                {{ $imgs->created_at->format('Y-m-d H:i') }}
+            </p>
 
         </div>
+
         @endforeach
         @endif
 
@@ -94,7 +108,7 @@
     $(document).ready(function() {
         galleryImages = $('#gallery img').toArray();
         console.log("Loaded images:", galleryImages.length);
-        
+
 
         $('.imgclick').click(function() {
             index = $(this).data('id');
@@ -121,7 +135,8 @@
 
     $('.btnhide').hover(
         function() { // mouse enter
-            $(this).find('.deleteid').removeClass('hidden');
+            $(this).find('.deleteid').removeClass('hidden').hide().fadeIn(400);
+            $(this).find('.textimg').removeClass('hidden').hide().fadeIn(200);
         },
         function() { // mouse leave
             let checkbox = $(this).find('.deleteid');
@@ -130,17 +145,42 @@
             } else {
                 checkbox.addClass('hidden'); // hide if not checked
             }
+            $(this).find('.textimg').addClass('hidden');
         }
     );
 
+    // SELECT ALL
+    $(document).on('click', '.selectall', function() {
+        $('.deleteid').prop('checked', true);
+        $('.deleteid').removeClass('hidden');
+
+        $(this)
+            .text('Unselect All')
+            .removeClass('selectall')
+            .addClass('unselectall');
+
+    });
+
+    // UNSELECT ALL
+    $(document).on('click', '.unselectall', function() {
+        $('.deleteid').prop('checked', false);
+        $('.deleteid').addClass('hidden');
+
+        $(this)
+            .text('Select All')
+            .removeClass('unselectall')
+            .addClass('selectall');
+    });
 
 
     //delete
     $('.deleteid').click(function() {
         if ($('.deleteid:checked').length > 0) {
             $('#deletebttn').removeAttr('disabled');
+            $('.selectall').removeClass('hidden');
         } else {
             $('#deletebttn').attr('disabled', 'true');
+            $('.selectall').addClass('hidden');
         }
     });
 

@@ -1,7 +1,7 @@
 @extends('admin.index')
 
 @section('content')
-<div class="px-2 sm:px-0">
+<div class="px-2 sm:px-0 h-[100vh]">
 
     <!-- Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 min-h-14 sm:h-14 border border-gray-300 rounded-lg shadow-md px-3 sm:px-4 py-2 sm:py-0 mb-3 sm:mb-4 bg-white">
@@ -63,6 +63,9 @@
             </a>
         </div>
     </div>
+<div class="">
+    {{ $student->links() }}
+</div>
 </div>
 @if(session('success'))
 <script>

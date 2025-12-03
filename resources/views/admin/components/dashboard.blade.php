@@ -13,31 +13,39 @@
 
     <!-- Dashboard cards -->
     <div class="row g-4">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="card text-white bg-primary">
           <div class="card-body">
             <h5 class="card-title">Students</h5>
-            <p class="card-text fs-4">1,234</p>
+            <p class="card-text fs-4">{{$student}}</p>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="card text-white bg-success">
           <div class="card-body">
-            <h5 class="card-title">Total Employee</h5>
+            <h5 class="card-title">Total Teachers</h5>
+            <p class="card-text fs-4">{{$teacher}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="card text-white bg-warning">
+          <div class="card-body">
+            <h5 class="card-title">Classes</h5>
             <p class="card-text fs-4">0</p>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card text-white bg-warning">
+      <div class="col-md-2">
+        <div class="card text-white bg-purple-600">
           <div class="card-body">
-            <h5 class="card-title">Revenue</h5>
-            <p class="card-text fs-4">$0</p>
+            <h5 class="card-title">Attendance</h5>
+            <p class="card-text fs-4">0</p>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="card text-white bg-danger">
           <div class="card-body">
             <h5 class="card-title">Total Revenue</h5>
