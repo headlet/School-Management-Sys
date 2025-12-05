@@ -18,7 +18,7 @@
                 <a href="route('section', $class->class)" class="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition">
                     <i class="bi bi-eye text-[10px] sm:text-xs md:text-base"></i>
                 </a>
-                <a href="route('editstd', $classes->id)" class="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-yellow-500 text-white rounded-full hover:bg-yellow-600 transition">
+                <a href="{{route('edit_class', $sections->id)}}" class="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-yellow-500 text-white rounded-full hover:bg-yellow-600 transition">
                     <i class="bi bi-pencil text-[10px] sm:text-xs md:text-base"></i>
                 </a>
                 <a href="#"
