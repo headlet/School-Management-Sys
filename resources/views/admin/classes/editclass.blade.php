@@ -9,14 +9,14 @@
         @csrf
         <div class="relative w-[20vw]">
             <label for="class" class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">Class:</label>
-            <input type="text" name="Class" id="class" placeholder="Add a class" value="{{old('Class')}}" class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
+            <input type="text" name="Class" id="class" value="{{old('Class')}}" placeholder="Add a class" class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
         </div>
         <div class="relative w-[20vw]">
             <label for="section" class="absolute -top-2 left-4 bg-gradient-to-r from-blue-500 to-purple-400 text-white text-xs sm:text-sm px-2 rounded-full shadow z-10">Section:</label>
-            <input type="text" name="Section" placeholder="Add section" value="{{old('Section')}}" class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
+            <input type="text" name="Section" value="{{old('Section')}}" placeholder="Add section" class="w-full h-11 sm:h-12 mt-2 px-4 py-3 border border-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm sm:text-base">
 
         </div>
-        <button type="submit" class="bg-blue-400 p-2 rounded-xl text-lg font-normal">Add Class</button>
+        <button type="submit" class="bg-blue-400 p-2 rounded-xl text-lg font-normal">Update</button>
     </form>
 
     
