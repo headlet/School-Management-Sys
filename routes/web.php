@@ -66,6 +66,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/class', [ClassesController::class, 'index'])->name('classes');
     Route::get('/newclass', [ClassesController::class, 'create'])->name('newclass');
     Route::post('/addclass', [ClassesController::class, 'store'])->name('storeclass');
+    Route::get('/class/{class}', [ClassesController::class, 'show'])->name('section');
 
 });
 

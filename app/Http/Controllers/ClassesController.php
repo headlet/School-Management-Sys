@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\classes;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ClassesController extends Controller
@@ -13,8 +14,8 @@ class ClassesController extends Controller
     public function index()
     {
 
-        $class = classes::all();
-        return view('admin.classes.class', compact("class"));
+        $classes = classes::select('class')->distinct()->get();
+        return view('admin.classes.class', compact("classes"));
     }
 
     /**
@@ -43,9 +44,12 @@ class ClassesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(classes $classes)
+    public function show($class)
     {
-        //
+
+        $section = classes::where('Class', $class)->get();
+
+        return view('admin.classes.viewclass', compact('section', "class"));
     }
 
     /**
